@@ -3,16 +3,14 @@ package ba.unsa.etf.rpr;
 sa sumom svojih cifara. U programu napravite pomoćnu funkciju za izračunavanje sume cifara cijelog broja (int).*/
 import java.util.Scanner;
 public class Main {
-    static int djeljivi(int n){
+    static boolean djeljivi(int n){
         int suma = 0, cifra, pom = n;
         while(pom!=0){
             cifra = pom%10;
             suma = suma + cifra;
             pom = pom/10;
         }
-        if(n%suma == 0)
-            return 1;
-        return 0;
+        return n % suma == 0;
     }
     public static void main(String[] args) {
 	    int n;
@@ -20,7 +18,7 @@ public class Main {
         System.out.println("Unesite broj n: ");
         n = ulaz.nextInt();
         for(int i=1; i<=n; i++){
-            if(djeljivi(i) == 1){
+            if(djeljivi(i)){
                 System.out.print(i + " ");
             }
         }
